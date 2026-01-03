@@ -2,117 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Google Interface</title>
+    <title>Google Interface Clone</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background: #fff;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
         }
 
-        /* Top navigation */
-        .top-nav {
-            display: flex;
-            justify-content: flex-end;
-            padding: 15px 20px;
-            font-size: 14px;
-        }
-
-        .top-nav a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: #000;
-        }
-
-        /* Main content */
-        .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* Google Logo */
         .logo {
-            font-size: 80px;
+            font-size: 70px;
             font-weight: bold;
             margin-bottom: 20px;
         }
+        .logo span:nth-child(1){color:#4285F4;}
+        .logo span:nth-child(2){color:#DB4437;}
+        .logo span:nth-child(3){color:#F4B400;}
+        .logo span:nth-child(4){color:#4285F4;}
+        .logo span:nth-child(5){color:#0F9D58;}
+        .logo span:nth-child(6){color:#DB4437;}
 
-        .logo span:nth-child(1) { color: #4285F4; }
-        .logo span:nth-child(2) { color: #EA4335; }
-        .logo span:nth-child(3) { color: #FBBC05; }
-        .logo span:nth-child(4) { color: #4285F4; }
-        .logo span:nth-child(5) { color: #34A853; }
-        .logo span:nth-child(6) { color: #EA4335; }
+        /* Search Box */
+        .search-box {
+            width: 550px;
+            max-width: 90%;
+            display: flex;
+            align-items: center;
+            border: 1px solid #dfe1e5;
+            border-radius: 25px;
+            padding: 10px 15px;
+        }
 
         .search-box input {
-            width: 500px;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 25px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
-
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .buttons button {
-            padding: 10px 18px;
-            margin: 5px;
+            flex: 1;
             border: none;
-            background: #f2f2f2;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 4px;
+            outline: none;
+            font-size: 16px;
         }
 
-        .buttons button:hover {
-            border: 1px solid #ccc;
+        .search-box:hover {
+            box-shadow: 0 1px 6px rgba(32,33,36,.28);
         }
 
-        /* Footer */
-        footer {
-            background: #f2f2f2;
-            padding: 15px;
+        /* Apps */
+        .apps {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
             text-align: center;
+        }
+
+        .app {
+            text-decoration: none;
+            color: #000;
             font-size: 14px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin: auto;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .youtube { background: #FF0000; }
+        .chrome { background: #4285F4; }
+        .github { background: #24292e; }
+        .gmail  { background: #DB4437; }
+        .telegram { background: #0088cc; }
+        .drive { background: #0F9D58; }
+
+        .app p {
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
+    
 
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <a href="#">Gmail</a>
-        <a href="#">Images</a>
+
+    <!-- Logo -->
+    <div class="logo">
+        <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
     </div>
 
-    <!-- Main Section -->
-    <div class="main">
-        <div class="logo">
-            <span>G</span><span>o</span><span>o</span>
-            <span>g</span><span>l</span><span>e</span>
-        </div>
+    <!-- Search -->
+    <form class="search-box" onsubmit="searchGoogle(event)">
+        <input type="text" id="query" placeholder="Search Google or type a URL">
+    </form>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search Google or type a URL">
-        </div>
+    <!-- Apps -->
+    <div class="apps">
+        <a class="app" href="https://www.youtube.com" target="_blank">
+            <div class="icon youtube">▶</div>
+            <p>YouTube</p>
+        </a>
 
-        <div class="buttons">
-            <button>Google Search</button>
-            <button>I’m Feeling Lucky</button>
-        </div>
+        <a class="app" href="https://www.google.com/chrome/" target="_blank">
+            <div class="icon chrome">🌐</div>
+            <p>Chrome</p>
+        </a>
+
+        <a class="app" href="https://github.com" target="_blank">
+            <div class="icon github">🐙</div>
+            <p>GitHub</p>
+        </a>
+
+        <a class="app" href="https://mail.google.com" target="_blank">
+            <div class="icon gmail">✉</div>
+            <p>Gmail</p>
+        </a>
+
+        <a class="app" href="https://web.telegram.org" target="_blank">
+            <div class="icon telegram">✈</div>
+            <p>Telegram</p>
+        </a>
+
+        <a class="app" href="https://drive.google.com" target="_blank">
+            <div class="icon drive">📁</div>
+            <p>Drive</p>
+        </a>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        Ethiopia | Simple Google UI Practice
-    </footer>
+    <script>
+        function searchGoogle(e) {
+            e.preventDefault();
+            const q = document.getElementById("query").value;
+            if (q.trim() !== "") {
+                window.location.href =
+                    "https://www.google.com/search?q=" + encodeURIComponent(q);
+            }
+        }
+    </script>
 
 </body>
 </html>
